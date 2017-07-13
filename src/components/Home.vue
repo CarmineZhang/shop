@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main">
     <button class="ve-button ve-button-default" @click="showAlert">测试alert</button>
     <button class="ve-button ve-button-primary" @click="showAlert1">测试alert1</button>
     <button class="ve-button ve-button-warn" @click="showConfirm">测试confirm</button>
@@ -56,5 +56,10 @@ export default {
 </script>
 
 <style lang='scss'>
-
+  .main{
+    margin: 10px;
+  }
+  button{
+    margin-top: 10px;
+  }
 </style>
