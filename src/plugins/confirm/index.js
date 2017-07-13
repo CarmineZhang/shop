@@ -1,4 +1,4 @@
-import AlertComponent from '@/components/alert'
+import ConfirmComponent from '@/components/confirm'
 import {
   mergeProps
 } from '@/libs/merge'
@@ -7,14 +7,14 @@ let $vm
 const plugin = {
   install(Vue, options) {
     if (!$vm) {
-      const Alert = Vue.extend(AlertComponent)
-      $vm = new Alert({
+      const Confirm = Vue.extend(ConfirmComponent)
+      $vm = new Confirm({
         el: document.createElement('div')
       })
       document.body.appendChild($vm.$el)
     }
 
-    const alert = {
+    const confirm = {
       show(options = {}) {
         if (typeof options === 'object') {
           mergeProps($vm, options)
@@ -22,14 +22,14 @@ const plugin = {
           $vm.title = ''
           $vm.content = options
         }
-        this.unwatcher && this.unwatcher()
-        this.unwatcher = $vm.$watch('showValue', (val) => {
-          val && options.onShow && options.onShow($vm)
-          if (!val && options.onHide) {
-            options.onHide($vm)
-            this.unwatcher && this.unwatcher()
-            this.unwatcher = null
-          }
+        $vm.$off('on-cancel')
+        $vm.$off('on-confirm')
+
+        $vm.$on('on-cancel', () => {
+          options && options.onCancel && options.onCancel()
+        })
+        $vm.$on('on-confirm', () => {
+          options && options.onConfirm && options.onConfirm()
         })
         $vm.showValue = true
       },
@@ -40,13 +40,13 @@ const plugin = {
 
     if (!Vue.$ve) {
       Vue.$ve = {
-        alert
+        confirm
       }
     } else {
-      Vue.$ve.alert = alert
+      Vue.$ve.confirm = confirm
     }
     Vue.mixin({
-      created: function () {
+      created: function() {
         this.$ve = Vue.$ve
       }
     })

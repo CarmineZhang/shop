@@ -10,7 +10,7 @@
 
 ### 修改为淘宝镜像
 ``` bash
-    npm config set registry https://registry.npm.taobao.org 
+npm config set registry https://registry.npm.taobao.org 
 ```
 ## Build Setup
 

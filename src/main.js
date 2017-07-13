@@ -5,10 +5,11 @@ import App from './App'
 // import store from './store'
 import router from './router'
 import AlertPlugin from '@/plugins/alert'
-
+import ConfirmPlugin from '@/plugins/confirm'
 import './assets/css/weui.css'
 Vue.config.productionTip = false
 Vue.use(AlertPlugin)
+Vue.use(ConfirmPlugin)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
