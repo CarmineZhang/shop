@@ -21,20 +21,19 @@ const plugin = {
         } else if (typeof options === 'string') {
           $vm.content = options
         }
-        this.watcher && this.watcher()
-        this.watcher = $vm.$watch('showValue', (val) => {
+        this.unwatcher && this.unwatcher()
+        this.unwatcher = $vm.$watch('showValue', (val) => {
           val && options.onShow && options.onShow($vm)
-          if (val === false && options.onHide) {
+          if (!val && options.onHide) {
             options.onHide($vm)
-            this.watcher && this.watcher()
+            this.unwatcher && this.unwatcher()
+            this.unwatcher = null
           }
         })
         $vm.showValue = true
       },
       hide() {
         $vm.showValue = false
-        this.watcher && this.watcher()
-        this.watcher = null
       }
     }
 

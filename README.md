@@ -1,7 +1,17 @@
 # shop
 
-> A Vue.js project
+> 移动端网上商城
 
+## Build Before
+
+### 安装node
+
+    [node](https://nodejs.org/en/)
+
+### 修改为淘宝镜像
+    ```bash
+    npm config set registry https://registry.npm.taobao.org 
+    ```
 ## Build Setup
 
 ``` bash

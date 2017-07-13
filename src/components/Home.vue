@@ -1,6 +1,7 @@
 <template>
   <div>
     <button @click="showAlert">测试alert</button>
+    <button @click="showAlert1">测试alert1</button>
     <alert v-model="show" title="提示">abcd</alert>
     <ve-footer></ve-footer>
   </div>
@@ -25,6 +26,9 @@ export default {
     showAlert() {
       // this.show = true
       this.$ve.alert.show({ title: '提示', content: '数据测试！' })
+    },
+    showAlert1() {
+      this.$ve.alert.show('cccccsss')
     }
   }
 }
