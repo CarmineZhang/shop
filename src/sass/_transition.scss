@@ -17,9 +17,23 @@
   transform: translate(-50%, -50%) scale(0.85)!important;
 }
 
-.ve-mask-enter, .ve-mask-leave-active {
+.ve-mask-enter,
+.ve-mask-leave-active {
   opacity: 0;
 }
-.ve-mask-leave-active, .ve-mask-enter-active {
+
+.ve-mask-leave-active,
+.ve-mask-enter-active {
   transition: opacity 300ms;
+}
+
+.ve-fade-enter-active,
+.ve-fade-leave-active {
+  opacity: 1;
+  transition: opacity linear 0.2s;
+}
+
+.ve-fade-enter,
+.ve-fade-leave-to {
+  opacity: 0;
 }
