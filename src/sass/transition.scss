@@ -1,0 +1,25 @@
+.ve-dialog-enter {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(1.185)!important;
+}
+
+.ve-dialog-enter-active {
+  opacity: 1;
+  transition-duration: 400ms;
+  transform: translate(-50%, -50%) scale(1)!important;
+  transition-property: transform, opacity!important;
+}
+
+.ve-dialog-leave-active {
+  opacity: 0;
+  transition-duration: 300ms;
+  transition-property: transform, opacity!important;
+  transform: translate(-50%, -50%) scale(0.85)!important;
+}
+
+.ve-mask-enter, .ve-mask-leave-active {
+  opacity: 0;
+}
+.ve-mask-leave-active, .ve-mask-enter-active {
+  transition: opacity 300ms;
+}

@@ -4,9 +4,11 @@ import Vue from 'vue'
 import App from './App'
 // import store from './store'
 import router from './router'
+import AlertPlugin from '@/plugins/alert'
+
 import './assets/css/weui.css'
 Vue.config.productionTip = false
-
+Vue.use(AlertPlugin)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
