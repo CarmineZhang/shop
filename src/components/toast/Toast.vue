@@ -1,12 +1,10 @@
 <template>
-  <div class="vux-toast" v-show="show">
-    <div class="weui-mask_transparent"></div>
+  <div class="ve-toast">
+    <div class="weui-mask_transparent" v-show="show"></div>
     <transition :name="currentTransition">
-      <div class="weui-toast" :style="{width: width}" :class="toastClass">
+      <div class="weui-toast" :class="toastClass" v-show="show">
         <i class="weui-icon-success-no-circle weui-icon_toast" v-show="type !== 'text'"></i>
-        <p class="weui-toast__content" v-if="text" :style="{
-                                          padding: '10px'
-                                        }" v-html="text"></p>
+        <p class="weui-toast__content" v-if="content" v-html="content"></p>
         <p class="weui-toast__content" v-else>
           <slot></slot>
         </p>
@@ -23,17 +21,24 @@ export default {
     }
   },
   props: {
+    value: {
+      type: Boolean,
+      default: false
+    },
+    duration: {
+      type: Number,
+      default: 2000
+    },
     transition: String,
     type: {
       type: String,
       default: 'text'
     },
-    width: {
+    content: String,
+    position: {
       type: String,
-      default: '7.6em'
-    },
-    text: String,
-    position: String
+      default: 'middle'
+    }
   },
   computed: {
     currentTransition() {
@@ -50,7 +55,6 @@ export default {
     },
     toastClass() {
       return {
-        'weui-loading': this.type === 'loadding',
         'weui-toast_success': this.type === 'success',
         'weui-toast_text': this.type === 'text',
         've-toast-top': this.position === 'top',
@@ -59,6 +63,21 @@ export default {
       }
     }
   },
-} 
+  watch: {
+    show(val) {
+      this.$emit('input', val)
+      if (val) {
+        clearTimeout(this.timeout)
+        this.timeout = setTimeout(() => {
+          this.show = false
+          this.$emit('on-hide')
+        }, this.duration)
+      }
+    },
+    value(val) {
+      this.show = val
+    }
+  }
+}
 </script>
 

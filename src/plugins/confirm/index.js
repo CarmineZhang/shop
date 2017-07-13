@@ -46,7 +46,7 @@ const plugin = {
       Vue.$ve.confirm = confirm
     }
     Vue.mixin({
-      created: function() {
+      created: function () {
         this.$ve = Vue.$ve
       }
     })

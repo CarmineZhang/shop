@@ -6,11 +6,15 @@ import App from './App'
 import router from './router'
 import AlertPlugin from '@/plugins/alert'
 import ConfirmPlugin from '@/plugins/confirm'
+import ToastPlugina from '@/plugins/toast'
 import './assets/css/weui.css'
 import './sass/main.scss'
 Vue.config.productionTip = false
+
 Vue.use(AlertPlugin)
 Vue.use(ConfirmPlugin)
+Vue.use(ToastPlugina)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -3,8 +3,14 @@
     <button class="ve-button ve-button-default" @click="showAlert">测试alert</button>
     <button class="ve-button ve-button-primary" @click="showAlert1">测试alert1</button>
     <button class="ve-button ve-button-warn" @click="showConfirm">测试confirm</button>
+  
+    <button class="ve-button ve-button-default" @click="toastTop">toastTop</button>
+    <button class="ve-button ve-button-primary" @click="toastBottom">toastBottom</button>
+    <button class="ve-button ve-button-warn" @click="toastSuccess">toastSuccess</button>
+  
     <alert v-model="show" title="提示">abcd</alert>
     <confirm v-model="confirmShow" title='提示' content='测试confirm' @on-confirm='confirm'></confirm>
+    <toast :duration="1000" content='上传成功' type='success' v-model="toastshow" @on-hide="hidetoast"></toast>
     <ve-footer></ve-footer>
   </div>
 </template>
@@ -13,21 +19,36 @@
 import VeFooter from './Footer'
 import Alert from './alert'
 import Confirm from './confirm'
+import Toast from './toast'
 export default {
   name: 'home',
   components: {
     VeFooter,
     Alert,
-    Confirm
+    Confirm,
+    Toast
   },
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',
       show: false,
-      confirmShow: false
+      confirmShow: false,
+      toastshow: false
     }
   },
   methods: {
+    toastTop() {
+      this.$ve.toast.toastTop('hello world', 1000)
+    },
+    toastBottom() {
+      this.$ve.toast.toastBottom('hello worldhello worldhello world')
+    },
+    toastSuccess() {
+      // this.$ve.toast.toastSuccess('注册成功', () => {
+      //   console.log('注册成功')
+      // })
+      this.toastshow = true
+    },
     showAlert() {
       // this.show = true
       this.$ve.alert.show({ title: '提示', content: '数据测试！' })
@@ -50,16 +71,20 @@ export default {
     },
     confirm() {
       console.log('ok')
+    },
+    hidetoast() {
+      console.log('上传成功')
     }
   }
 }
 </script>
 
 <style lang='scss'>
-  .main{
-    margin: 10px;
-  }
-  button{
-    margin-top: 10px;
-  }
+.main {
+  margin: 10px;
+}
+
+button {
+  margin-top: 10px;
+}
 </style>
