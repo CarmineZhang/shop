@@ -12,6 +12,13 @@
 ``` bash
 npm config set registry https://registry.npm.taobao.org 
 ```
+   #### 建议
+	 window系统下，最好直接安装cnpm,这是淘宝提供的安装工具可以代替npm,最重要的windows下
+	 安装node-sass 不成功。用cnpm就可以，最重要的是不需要修改淘宝镜像.
+```bash
+npm i -g cnpm --registry=https://registry.npm.taobao.org 
+```
+
 ## Build Setup
 
 ``` bash
