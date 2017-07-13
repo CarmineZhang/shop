@@ -64,6 +64,3 @@ export default {
   }
 }
 </script>
-<style lang="scss">
-@import "../../sass/transition.scss";
-</style>

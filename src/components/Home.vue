@@ -1,8 +1,8 @@
 <template>
   <div>
-    <button @click="showAlert">测试alert</button>
-    <button @click="showAlert1">测试alert1</button>
-    <button @click="showConfirm">测试confirm</button>
+    <button class="ve-button ve-button-default" @click="showAlert">测试alert</button>
+    <button class="ve-button ve-button-primary" @click="showAlert1">测试alert1</button>
+    <button class="ve-button ve-button-warn" @click="showConfirm">测试confirm</button>
     <alert v-model="show" title="提示">abcd</alert>
     <confirm v-model="confirmShow" title='提示' content='测试confirm' @on-confirm='confirm'></confirm>
     <ve-footer></ve-footer>
