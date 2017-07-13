@@ -6,12 +6,12 @@
 
 ### 安装node
 
-    [node](https://nodejs.org/en/)
+[node](https://nodejs.org/en/)
 
 ### 修改为淘宝镜像
-    ```bash
+``` bash
     npm config set registry https://registry.npm.taobao.org 
-    ```
+```
 ## Build Setup
 
 ``` bash
