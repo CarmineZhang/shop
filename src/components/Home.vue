@@ -8,6 +8,8 @@
     <button class="ve-button ve-button-primary" @click="toastBottom">toastBottom</button>
     <button class="ve-button ve-button-warn" @click="toastSuccess">toastSuccess</button>
   
+    <button class="ve-button ve-button-primary" @click="loading">loading</button>
+  
     <alert v-model="show" title="提示">abcd</alert>
     <confirm v-model="confirmShow" title='提示' content='测试confirm' @on-confirm='confirm'></confirm>
     <toast :duration="1000" content='上传成功' type='success' v-model="toastshow" @on-hide="hidetoast"></toast>
@@ -74,6 +76,15 @@ export default {
     },
     hidetoast() {
       console.log('上传成功')
+    },
+    loading() {
+      var loading = this.$ve.loading('数据加载中', () => {
+        this.confirm()
+      })
+
+      setTimeout(function () {
+        loading.hide()
+      }, 2000)
     }
   }
 }

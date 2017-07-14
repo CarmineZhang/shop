@@ -6,14 +6,16 @@ import App from './App'
 import router from './router'
 import AlertPlugin from '@/plugins/alert'
 import ConfirmPlugin from '@/plugins/confirm'
-import ToastPlugina from '@/plugins/toast'
+import ToastPlugin from '@/plugins/toast'
+import LoadingPlugin from '@/plugins/loading'
 import './assets/css/weui.css'
 import './sass/main.scss'
 Vue.config.productionTip = false
 
 Vue.use(AlertPlugin)
 Vue.use(ConfirmPlugin)
-Vue.use(ToastPlugina)
+Vue.use(ToastPlugin)
+Vue.use(LoadingPlugin)
 
 /* eslint-disable no-new */
 new Vue({
