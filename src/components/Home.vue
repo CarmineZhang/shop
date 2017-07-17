@@ -10,9 +10,12 @@
   
     <button class="ve-button ve-button-primary" @click="loading">loading</button>
   
+    <button class="ve-button ve-button-primary" @click="actionSheet">actionsheet</button>
+  
     <alert v-model="show" title="提示">abcd</alert>
     <confirm v-model="confirmShow" title='提示' content='测试confirm' @on-confirm='confirm'></confirm>
     <toast :duration="1000" content='上传成功' type='success' v-model="toastshow" @on-hide="hidetoast"></toast>
+    <action-sheet v-model="actionShow" :menus="menus" @on-click-menu="clickMenu"></action-sheet>
     <ve-footer></ve-footer>
   </div>
 </template>
@@ -22,20 +25,27 @@ import VeFooter from './Footer'
 import Alert from './alert'
 import Confirm from './confirm'
 import Toast from './toast'
+import ActionSheet from './actionsheet'
 export default {
   name: 'home',
   components: {
     VeFooter,
     Alert,
     Confirm,
-    Toast
+    Toast,
+    ActionSheet
   },
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',
       show: false,
       confirmShow: false,
-      toastshow: false
+      toastshow: false,
+      actionShow: false,
+      menus: {
+        photo: '拍照',
+        select: '从相册选择'
+      }
     }
   },
   methods: {
@@ -85,6 +95,12 @@ export default {
       setTimeout(function () {
         loading.hide()
       }, 2000)
+    },
+    actionSheet() {
+      this.actionShow = true
+    },
+    clickMenu(key) {
+      console.log(key)
     }
   }
 }
