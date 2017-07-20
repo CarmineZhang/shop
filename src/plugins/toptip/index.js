@@ -26,6 +26,7 @@ const plugin = {
           callback: options
         };
       }
+      options.content = content
 
       if (typeof options === 'object') {
         mergeProps($vm, options)

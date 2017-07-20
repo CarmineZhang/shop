@@ -13,7 +13,7 @@
     <button class="ve-button ve-button-primary" @click="actionSheet">actionsheet</button>
   
     <button class="ve-button ve-button-primary" @click="picker">picker</button>
-  
+    <button class="ve-button ve-button-primary" @click="toptip">toptip</button>
     <search-bar @on-change="searchBar"></search-bar>
     <alert v-model="show" title="提示">abcd</alert>
     <confirm v-model="confirmShow" title='提示' content='测试confirm' @on-confirm='confirm'></confirm>
@@ -166,6 +166,9 @@ export default {
     },
     searchBar(val) {
       console.log(val)
+    },
+    toptip() {
+      this.$ve.toptip('测试toptip')
     }
   }
 }

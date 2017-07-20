@@ -1,5 +1,5 @@
 <template>
-  <div class="weui-toptips weui-toptips_warn" :class="[className]" v-show="show" v-html="content">
+  <div class="weui-toptips weui-toptips_warn" v-show="show" v-html="content">
   </div>
 </template>
 <script>
@@ -15,6 +15,11 @@ export default {
       default: 2000
     },
     content: String
+  },
+  data() {
+    return {
+      show: false
+    }
   },
   watch: {
     value(val) {
@@ -33,4 +38,10 @@ export default {
   }
 }
 </script>
+<style scoped>
+.weui-toptips {
+  display: block;
+}
+</style>
+
 
