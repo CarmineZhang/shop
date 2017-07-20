@@ -1,7 +1,9 @@
 <template>
-  <div v-show="show">
-    <div class="weui-mask"></div>
-    <div class="weui-picker weui-animate-slide-up">
+  <div class="ve-picker">
+    <transition name="ve-mask">
+      <div class="weui-mask weui-mask_transparent" v-show="show"></div>
+    </transition>
+    <div class="weui-picker" :class="{'ve-picker-toggle': show}">
       <div class="weui-picker__hd">
         <a href="javascript:;" data-action="cancel" class="weui-picker__action" @click="cancel">取消</a>
         <a href="javascript:;" data-action="select" class="weui-picker__action" @click="confirm">确定</a>
