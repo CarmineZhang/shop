@@ -27,6 +27,9 @@ module.exports = {
     'space-before-function-paren': 0,
     'eol-last': 0,
     'no-trailing-spaces': 0,
-    'spaced-comment': 0
+    'spaced-comment': 0,
+    'no-console': ["error", {
+      allow: ["warn", "error", "log"]
+    }]
   }
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import $ from '../util/util'
+import $ from './util'
 
 /**
  * set transition
@@ -84,7 +84,7 @@ const getMin = (offset, rowHeight, length) => {
   return -(rowHeight * (length - offset - 1))
 }
 
-$.fn.scroll = function (options) {
+function scroll(options) {
   const defaults = $.extend({
     items: [], // 数据
     scrollable: '.weui-picker__content', // 滚动的元素
@@ -97,7 +97,7 @@ $.fn.scroll = function (options) {
   const items = defaults.items.map((item) => {
     return `<div class="weui-picker__item${item.disabled ? ' weui-picker__item_disabled' : ''}">${typeof item === 'object' ? item.label : item}</div>`
   }).join('')
-  const $this = $(this)
+  const $this = $(defaults.id)
 
   $this.find('.weui-picker__content').html(items)
 
@@ -261,3 +261,4 @@ $.fn.scroll = function (options) {
       })
   }
 }
+export default scroll

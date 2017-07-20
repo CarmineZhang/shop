@@ -2,7 +2,7 @@ import LoadingComponent from '@/components/loading'
 let $vm
 
 const plugin = {
-  install(Vue, options) {
+  install(Vue) {
     if (!$vm) {
       const Loading = Vue.extend(LoadingComponent)
 

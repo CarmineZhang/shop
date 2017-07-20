@@ -5,7 +5,7 @@ import {
 let $vm
 
 const plugin = {
-  install(Vue, options) {
+  install(Vue) {
     if (!$vm) {
       const Confirm = Vue.extend(ConfirmComponent)
       $vm = new Confirm({

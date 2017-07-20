@@ -12,10 +12,15 @@
   
     <button class="ve-button ve-button-primary" @click="actionSheet">actionsheet</button>
   
+    <button class="ve-button ve-button-primary" @click="picker">picker</button>
+  
+    <button class="ve-button ve-button-primary" @click="newPicker">newPicker</button>
+  
     <alert v-model="show" title="提示">abcd</alert>
     <confirm v-model="confirmShow" title='提示' content='测试confirm' @on-confirm='confirm'></confirm>
     <toast :duration="1000" content='上传成功' type='success' v-model="toastshow" @on-hide="hidetoast"></toast>
     <action-sheet v-model="actionShow" :menus="menus" @on-click-menu="clickMenu"></action-sheet>
+    <picker v-model="pickerShow" :data="pickerData" :depth="depth" :default-value="[0,2]"></picker>
     <ve-footer></ve-footer>
   </div>
 </template>
@@ -26,6 +31,7 @@ import Alert from './alert'
 import Confirm from './confirm'
 import Toast from './toast'
 import ActionSheet from './actionsheet'
+import Picker from './picker'
 export default {
   name: 'home',
   components: {
@@ -33,15 +39,67 @@ export default {
     Alert,
     Confirm,
     Toast,
-    ActionSheet
+    ActionSheet,
+    Picker
   },
   data() {
     return {
       msg: 'Welcome to Your Vue.js App',
       show: false,
+      depth: 2,
       confirmShow: false,
       toastshow: false,
       actionShow: false,
+      pickerShow: false,
+      pickerData: [
+        {
+          label: '飞机票',
+          value: 0,
+          children: [
+            {
+              label: '经济舱',
+              value: 1
+            },
+            {
+              label: '商务舱',
+              value: 2
+            }
+          ]
+        },
+        {
+          label: '火车票',
+          value: 1,
+          children: [
+            {
+              label: '卧铺',
+              value: 1,
+              disabled: true // 不可用
+            },
+            {
+              label: '坐票',
+              value: 2
+            },
+            {
+              label: '站票',
+              value: 3
+            }
+          ]
+        },
+        {
+          label: '汽车票',
+          value: 3,
+          children: [
+            {
+              label: '快班',
+              value: 1
+            },
+            {
+              label: '普通',
+              value: 2
+            }
+          ]
+        }
+      ],
       menus: {
         photo: '拍照',
         select: '从相册选择'
@@ -101,6 +159,32 @@ export default {
     },
     clickMenu(key) {
       console.log(key)
+    },
+    picker() {
+      this.pickerShow = true
+    },
+    newPicker() {
+      this.pickerData = [
+        {
+          label: '飞机票',
+          value: 0,
+          disabled: true // 不可用
+        },
+        {
+          label: '火车票',
+          value: 1
+        },
+        {
+          label: '汽车票',
+          value: 3
+        },
+        {
+          label: '公车票',
+          value: 4,
+        }
+      ]
+      this.depth = 1
+      this.pickerShow = true
     }
   }
 }
