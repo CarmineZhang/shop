@@ -1,4 +1,4 @@
-import AlertComponent from '@/components/alert'
+import AlertComponent from '@/components/base/alert'
 import {
   mergeProps
 } from '@/libs/merge'

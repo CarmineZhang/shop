@@ -1,4 +1,4 @@
-import ConfirmComponent from '@/components/confirm'
+import ConfirmComponent from '@/components/base/confirm'
 import {
   mergeProps
 } from '@/libs/merge'

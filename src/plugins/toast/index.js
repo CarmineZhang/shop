@@ -1,4 +1,4 @@
-import ToastComponent from '@/components/toast'
+import ToastComponent from '@/components/base/toast'
 import {
   mergeProps
 } from '@/libs/merge'

@@ -27,11 +27,11 @@
 
 <script>
 import VeFooter from './Footer'
-import Alert from './alert'
-import Confirm from './confirm'
-import Toast from './toast'
-import ActionSheet from './actionsheet'
-import Picker from './picker'
+import Alert from './base/alert'
+import Confirm from './base/confirm'
+import Toast from './base/toast'
+import ActionSheet from './base/actionsheet'
+import Picker from './base/picker'
 export default {
   name: 'home',
   components: {

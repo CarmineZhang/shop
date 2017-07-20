@@ -1,4 +1,4 @@
-import LoadingComponent from '@/components/loading'
+import LoadingComponent from '@/components/base/loading'
 let $vm
 
 const plugin = {
