@@ -14,8 +14,7 @@
   
     <button class="ve-button ve-button-primary" @click="picker">picker</button>
   
-    <button class="ve-button ve-button-primary" @click="newPicker">newPicker</button>
-  
+    <search-bar @on-change="searchBar"></search-bar>
     <alert v-model="show" title="提示">abcd</alert>
     <confirm v-model="confirmShow" title='提示' content='测试confirm' @on-confirm='confirm'></confirm>
     <toast :duration="1000" content='上传成功' type='success' v-model="toastshow" @on-hide="hidetoast"></toast>
@@ -32,6 +31,7 @@ import Confirm from './base/confirm'
 import Toast from './base/toast'
 import ActionSheet from './base/actionsheet'
 import Picker from './base/picker'
+import SearchBar from './base/searchbar'
 export default {
   name: 'home',
   components: {
@@ -40,7 +40,8 @@ export default {
     Confirm,
     Toast,
     ActionSheet,
-    Picker
+    Picker,
+    SearchBar
   },
   data() {
     return {
@@ -163,28 +164,8 @@ export default {
     picker() {
       this.pickerShow = true
     },
-    newPicker() {
-      this.pickerData = [
-        {
-          label: '飞机票',
-          value: 0,
-          disabled: true // 不可用
-        },
-        {
-          label: '火车票',
-          value: 1
-        },
-        {
-          label: '汽车票',
-          value: 3
-        },
-        {
-          label: '公车票',
-          value: 4,
-        }
-      ]
-      this.depth = 1
-      this.pickerShow = true
+    searchBar(val) {
+      console.log(val)
     }
   }
 }
