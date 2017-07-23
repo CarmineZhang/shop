@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import $ from './util'
+import $ from '@/libs/utils'
 
 /**
  * set transition

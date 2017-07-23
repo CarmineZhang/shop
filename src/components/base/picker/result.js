@@ -1,4 +1,4 @@
-import $ from './util'
+import $ from '@/libs/utils'
 
 function Result(item) {
   if (typeof item != 'object') {
