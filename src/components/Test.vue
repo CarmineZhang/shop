@@ -15,6 +15,7 @@
       <button class="ve-button ve-button-primary" @click="actionSheet">actionsheet</button>
   
       <button class="ve-button ve-button-primary" @click="picker">picker</button>
+      <button class="ve-button ve-button-primary" @click="datepicker">datepicker</button>
       <button class="ve-button ve-button-primary" @click="toptip">toptip</button>
       <search-bar @on-change="searchBar"></search-bar>
   
@@ -23,6 +24,7 @@
       <toast :duration="1000" content='上传成功' type='success' v-model="toastshow" @on-hide="hidetoast"></toast>
       <action-sheet v-model="actionShow" :menus="menus" @on-click-menu="clickMenu"></action-sheet>
       <picker v-model="pickerShow" :data="pickerData" :depth="depth" :default-value="[0,2]"></picker>
+      <datepicker v-model="datepickerShow" :start="2000" :end="2050" :default-value="dateNow" @on-change="datePickerChange"></datepicker>
     </div>
     <!-- <ve-footer></ve-footer> -->
   </div>
@@ -37,6 +39,7 @@ import ActionSheet from './base/actionsheet'
 import Picker from './base/picker'
 import SearchBar from './base/searchbar'
 import Swiper from './base/swiper'
+import Datepicker from './base/datepicker'
 export default {
   name: 'home',
   components: {
@@ -47,7 +50,8 @@ export default {
     ActionSheet,
     Picker,
     SearchBar,
-    Swiper
+    Swiper,
+    Datepicker
   },
   data() {
     return {
@@ -58,6 +62,7 @@ export default {
       toastshow: false,
       actionShow: false,
       pickerShow: false,
+      datepickerShow: false,
       pickerData: [
         {
           label: '飞机票',
@@ -123,6 +128,12 @@ export default {
       }]
     }
   },
+  computed: {
+    dateNow() {
+      var d = new Date()
+      return [d.getFullYear(), d.getMonth() + 1, d.getDate()]
+    }
+  },
   methods: {
     toastTop() {
       this.$ve.toast.toastTop('hello world', 1000)
@@ -185,6 +196,12 @@ export default {
     },
     toptip() {
       this.$ve.toptip('测试toptip')
+    },
+    datepicker() {
+      this.datepickerShow = true
+    },
+    datePickerChange(val) {
+      console.log(val)
     }
   }
 }
