@@ -17,8 +17,9 @@
       <button class="ve-button ve-button-primary" @click="picker">picker</button>
       <button class="ve-button ve-button-primary" @click="datepicker">datepicker</button>
       <button class="ve-button ve-button-primary" @click="toptip">toptip</button>
+      <button class="ve-button ve-button-primary" @click="address">address</button>
       <search-bar @on-change="searchBar"></search-bar>
-  
+      <ve-address v-model="addressShow" @on-change="addressChange"></ve-address>
       <alert v-model="show" title="提示">abcd</alert>
       <confirm v-model="confirmShow" title='提示' content='测试confirm' @on-confirm='confirm'></confirm>
       <toast :duration="1000" content='上传成功' type='success' v-model="toastshow" @on-hide="hidetoast"></toast>
@@ -40,6 +41,7 @@ import Picker from './base/picker'
 import SearchBar from './base/searchbar'
 import Swiper from './base/swiper'
 import Datepicker from './base/datepicker'
+import VeAddress from './base/address'
 export default {
   name: 'home',
   components: {
@@ -51,7 +53,8 @@ export default {
     Picker,
     SearchBar,
     Swiper,
-    Datepicker
+    Datepicker,
+    VeAddress
   },
   data() {
     return {
@@ -63,6 +66,7 @@ export default {
       actionShow: false,
       pickerShow: false,
       datepickerShow: false,
+      addressShow: false,
       pickerData: [
         {
           label: '飞机票',
@@ -202,6 +206,12 @@ export default {
     },
     datePickerChange(val) {
       console.log(val)
+    },
+    address() {
+      this.addressShow = true
+    },
+    addressChange(result) {
+      console.log(result)
     }
   }
 }

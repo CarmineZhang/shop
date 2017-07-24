@@ -29,7 +29,7 @@ module.exports = {
     'no-trailing-spaces': 0,
     'spaced-comment': 0,
     'no-console': ["error", {
-      allow: ["warn", "error", "log"]
+      allow: ["warn", "error", "log", "dir"]
     }]
   }
 }
