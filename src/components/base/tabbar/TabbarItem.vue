@@ -21,6 +21,7 @@ export default {
   methods: {
     onItemClick() {
       this.$parent.updateCurrentIndex(this.index)
+      this.$emit('on-click')
     }
   }
 }

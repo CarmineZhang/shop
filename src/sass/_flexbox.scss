@@ -1,21 +1,13 @@
 .ve-flexbox {
-  width: 100%;
   text-align: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   .ve-flexbox-item {
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
     flex: 1;
-    min-width: 20px;
+    text-align: center;
   }
 }
 
 .ve-flexbox-col {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
   .ve-flexbox-item {
     width: 100%;
@@ -23,8 +15,5 @@
 }
 
 .ve-flexbox-row {
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
   flex-direction: row;
 }
