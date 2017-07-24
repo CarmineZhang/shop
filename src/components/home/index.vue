@@ -22,6 +22,7 @@ export default {
 <style>
 .router-view {
   width: 100%;
+  padding-bottom: 50px;
 }
 
 .ve-pop-out-enter-active,
