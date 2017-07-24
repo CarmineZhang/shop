@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import VeFooter from './Footer'
+import VeFooter from './footer'
 import Alert from './base/alert'
 import Confirm from './base/confirm'
 import Toast from './base/toast'

@@ -7,7 +7,7 @@
     </tabbar>
 </template>
 <script>
-import { Tabbar, TabbarItem } from './base/tabbar'
+import { Tabbar, TabbarItem } from '../base/tabbar'
 export default {
     name: 've-footer',
     components: {
