@@ -19,6 +19,11 @@
       <button class="ve-button ve-button-primary" @click="toptip">toptip</button>
       <button class="ve-button ve-button-primary" @click="address">address</button>
       <search-bar @on-change="searchBar"></search-bar>
+  
+      <cell-box>
+        <cell title="接收通知" content="已开启"></cell>
+        <cell title="标题一" :link="true"></cell>
+      </cell-box>
       <ve-address v-model="addressShow" @on-change="addressChange"></ve-address>
       <alert v-model="show" title="提示">abcd</alert>
       <confirm v-model="confirmShow" title='提示' content='测试confirm' @on-confirm='confirm'></confirm>
@@ -42,6 +47,7 @@ import SearchBar from './base/searchbar'
 import Swiper from './base/swiper'
 import Datepicker from './base/datepicker'
 import VeAddress from './base/address'
+import { Cell, CellBox } from './base/cell'
 export default {
   name: 'home',
   components: {
@@ -54,7 +60,9 @@ export default {
     SearchBar,
     Swiper,
     Datepicker,
-    VeAddress
+    VeAddress,
+    Cell,
+    CellBox
   },
   data() {
     return {
