@@ -1,4 +1,4 @@
-import $ from '@/libs/utils'
+import assign from 'object-assign'
 
 function Result(item) {
   if (typeof item != 'object') {
@@ -7,7 +7,7 @@ function Result(item) {
       value: item
     };
   }
-  $.extend(this, item);
+  assign(this, item);
 }
 Result.prototype.toString = function () {
   return this.value;

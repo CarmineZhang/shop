@@ -1,5 +1,5 @@
 import objectAssign from 'object-assign'
-import $ from '@/libs/utils'
+import $ from '@/libs/domUtil'
 /**
  * 暂时只支持横向滑动
  */

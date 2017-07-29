@@ -257,7 +257,6 @@ objectAssign($.fn, {
 })
 
 objectAssign($, {
-  extend: objectAssign,
   /**
    * noop
    */

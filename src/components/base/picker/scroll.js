@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 
-import $ from '@/libs/utils'
-
+import $ from '@/libs/domUtil'
+import assign from 'object-assign'
 /**
  * set transition
  * @param $target
@@ -85,7 +85,7 @@ const getMin = (offset, rowHeight, length) => {
 }
 
 function scroll(options) {
-  const defaults = $.extend({
+  const defaults = assign({
     items: [], // 数据
     scrollable: '.weui-picker__content', // 滚动的元素
     offset: 3, // 列表初始化时的偏移量（列表初始化时，选项是聚焦在中间的，通过offset强制往上挪3项，以达到初始选项是为顶部的那项）
