@@ -19,7 +19,19 @@
       <button class="ve-button ve-button-primary" @click="toptip">toptip</button>
       <button class="ve-button ve-button-primary" @click="address">address</button>
       <search-bar @on-change="searchBar"></search-bar>
-  
+      <input type="text" v-model="phone">
+      <input type="text" v-model.lazy="username">
+      <div class="weui-cell">
+        <div class="weui-cell__hd">
+          <label class="weui-label">qq</label>
+        </div>
+        <div class="weui-cell__bd">
+          <input class="weui-input" type="number" :readonly="re" placeholder="请输入qq号">
+        </div>
+      </div>
+      <ul>
+        <li v-for="(value,key) in errors" :key="key" v-text="value"></li>
+      </ul>
       <cell-box>
         <cell title="接收通知" content="已开启"></cell>
         <cell title="标题一" :link="true"></cell>
@@ -75,6 +87,9 @@ export default {
       pickerShow: false,
       datepickerShow: false,
       addressShow: false,
+      phone: '',
+      username: '',
+      re: false,
       pickerData: [
         {
           label: '飞机票',
@@ -140,10 +155,17 @@ export default {
       }]
     }
   },
+  validator: {
+    phone: 'mobile',
+    username: ['required', { test: /^[a-zA-Z0-9]{6,12}$/, message: '用户名必须是6-12的数字和字母组合' }]
+  },
   computed: {
     dateNow() {
       var d = new Date()
       return [d.getFullYear(), d.getMonth() + 1, d.getDate()]
+    },
+    errors() {
+      return this.$validator.$errors
     }
   },
   methods: {
