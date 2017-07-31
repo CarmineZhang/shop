@@ -4,9 +4,12 @@
       <label class="weui-label" v-text="title"></label>
     </div>
     <div class="weui-cell__bd">
-      <input v-if="type === 'text'" class="weui-input" v-model="currentValue" type="text" :placeholder="placeholder" :readonly="readonly">
-      <input v-if="type === 'password'" class="weui-input" v-model="currentValue" type="password" :placeholder="placeholder" :readonly="readonly">
-      <input v-if="type === 'number'" class="weui-input" v-model="currentValue" type="tel" :placeholder="placeholder" :readonly="readonly">
+      <input v-if="type === 'text'" class="weui-input" v-model="currentValue" type="text" :placeholder="placeholder" :readonly="readonly" ref="input">
+      <input v-if="type === 'password'" class="weui-input" v-model="currentValue" type="password" :placeholder="placeholder" :readonly="readonly" ref="input">
+      <input v-if="type === 'number'" class="weui-input" v-model="currentValue" type="tel" :placeholder="placeholder" :readonly="readonly" ref="input">
+    </div>
+    <div class="weui-cell__ft">
+      <i class="weui-icon-clear" v-show="isShowClear" @click="clear"></i>
     </div>
   </div>
 </template>
@@ -19,15 +22,25 @@ export default {
   props: {
     type: {
       type: String,
-      defult: 'text'
+      default: 'text'
     },
+    title: String,
     placeholder: String,
     readonly: Boolean,
     value: [String, Number],
+    showClear: {
+      type: Boolean,
+      default: true
+    }
   },
   data() {
     return {
       currentValue: ''
+    }
+  },
+  computed: {
+    isShowClear() {
+      return this.showClear && !this.readonly && this.currentValue !== ''
     }
   },
   watch: {
@@ -36,6 +49,12 @@ export default {
     },
     currentValue(newVal) {
       this.$emit('input', newVal)
+    }
+  },
+  methods: {
+    clear() {
+      this.currentValue = ''
+      this.$refs.input.focus()
     }
   }
 }
