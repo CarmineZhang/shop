@@ -1,6 +1,6 @@
 <template>
   <div class="weui-cell">
-    <div class="weui-cell__hd">
+    <div class="weui-cell__hd" v-if="title!==undefined">
       <label class="weui-label" v-text="title"></label>
     </div>
     <div class="weui-cell__bd">

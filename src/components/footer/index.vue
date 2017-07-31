@@ -28,7 +28,7 @@ export default {
 
         },
         gotoMe() {
-
+            this.$router.push('/usercenter')
         }
     }
 }
