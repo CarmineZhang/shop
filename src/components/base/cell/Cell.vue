@@ -3,7 +3,7 @@
     <div class="weui-cell__bd">
       <p v-html="title"></p>
     </div>
-    <div class="weui-cell__ft" v-html="content"></div>
+    <div class="weui-cell__ft" v-html="content" :class="valueClass"></div>
   </div>
 </template>
 <script>
@@ -12,7 +12,17 @@ export default {
   props: {
     title: String,
     content: String,
-    link: Boolean
+    link: Boolean,
+    arrowDirection: String
+  },
+  computed: {
+    valueClass() {
+      return {
+        've-cell-arrow-transition': !!this.arrowDirection,
+        've-cell-arrow-up': this.arrowDirection === 'up',
+        've-cell-arrow-down': this.arrowDirection === 'down'
+      }
+    }
   },
   methods: {
     onClick(e) {

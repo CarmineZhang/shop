@@ -46,18 +46,21 @@ export default {
 
 .ve-recommend {
   padding: 0 10px;
-  @include clearfix
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .ve-recommend-item {
-  float: left;
-  width: 50%;
+
+  flex: 0 0 48%;
+  box-sizing: border-box;
   a {
     display: block;
     img {
       display: block;
-      width: 160px;
-      height: 106px;
+      width: 100%;
+      height: auto;
       margin: 0 auto;
     }
     span {

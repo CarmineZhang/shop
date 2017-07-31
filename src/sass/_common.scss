@@ -6,3 +6,21 @@ img {
   border: 0 none;
   vertical-align: top;
 }
+
+.weui-cell_access {
+  .ve-cell-arrow-up {
+    &:after {
+      transform: matrix(.71, .71, -.71, .71, 0, 0) rotate(-90deg);
+    }
+  }
+  .ve-cell-arrow-down {
+    &:after {
+      transform: matrix(.71, .71, -.71, .71, 0, 0) rotate(90deg);
+    }
+  }
+  .ve-cell-arrow-transition {
+    &:after {
+      transition: transfrom .3s;
+    }
+  }
+}
