@@ -10,6 +10,7 @@
     </div>
     <div class="weui-cell__ft">
       <i class="weui-icon-clear" v-show="isShowClear" @click="clear"></i>
+      <i class="weui-icon-warn" v-show="isValid"></i>
     </div>
   </div>
 </template>
@@ -31,6 +32,10 @@ export default {
     showClear: {
       type: Boolean,
       default: true
+    },
+    isValid: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
