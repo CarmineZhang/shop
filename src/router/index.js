@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/home'
-import Index from '@/components/index'
+// import Index from '@/components/index'
 import Category from '@/components/category'
 import UserCenter from '@/components/login'
 import Test from '@/components/Test'
@@ -14,7 +14,7 @@ export default new Router({
     component: Home,
     children: [{
       path: '/index',
-      component: Index
+      component: UserCenter
     }, {
       path: '/category',
       component: Category
