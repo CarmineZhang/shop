@@ -1,8 +1,7 @@
 export default {
   required: {
     test: /\S+/,
-    message: '${filename}必填项',
-    filename: ''
+    message: '必填项',
   },
   mobile: {
     test: /^1(3|4|5|7|8)\d{9}$/,
