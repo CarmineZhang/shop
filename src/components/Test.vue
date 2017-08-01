@@ -40,7 +40,7 @@
       <ve-input title="用户名" v-model="username"></ve-input>
       <ve-input title="密码" type="password"></ve-input>
       <ve-input title="手机验证码" type="number"></ve-input>
-      <ve-input title="readonly" readonly='true' v-model="username"></ve-input>
+      <ve-input title="readonly" :readonly='true' v-model="username"></ve-input>
       <ve-address v-model="addressShow" @on-change="addressChange"></ve-address>
       <alert v-model="show" title="提示">abcd</alert>
       <confirm v-model="confirmShow" title='提示' content='测试confirm' @on-confirm='confirm'></confirm>

@@ -52,6 +52,10 @@ export default {
     },
     value(val) {
       this.show = val
+    },
+    data(val) {
+      console.log(val)
+      this.render(val, 0)
     }
   },
   methods: {

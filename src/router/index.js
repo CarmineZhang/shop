@@ -3,7 +3,8 @@ import Router from 'vue-router'
 import Home from '@/components/home'
 // import Index from '@/components/index'
 import Category from '@/components/category'
-import UserCenter from '@/components/login'
+import Login from '@/components/login'
+import Register from '@/components/register'
 import Test from '@/components/Test'
 Vue.use(Router)
 
@@ -14,16 +15,19 @@ export default new Router({
     component: Home,
     children: [{
       path: '/index',
-      component: UserCenter
+      component: Login
     }, {
       path: '/category',
       component: Category
-    }, {
-      path: '/usercenter',
-      component: UserCenter
     }]
   }, {
     path: '/test',
     component: Test
+  }, {
+    path: '/register',
+    component: Register
+  }, {
+    path: '/login',
+    component: Login
   }]
 })

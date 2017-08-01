@@ -3,24 +3,17 @@
     <cell-box>
       <ve-input placeholder='请输入用户名/邮箱/已验证手机' v-model="username" :is-valid="!!this.$validator.$errors.username"></ve-input>
       <ve-input type="password" placeholder="请输入密码" v-model="pwd" :is-valid="!!this.$validator.$errors.pwd"></ve-input>
-      <div class="weui-cell weui-cell_vcode">
-        <div class="weui-cell__bd">
-          <input class="weui-input" type="number" placeholder="请输入验证码" v-model="code">
-        </div>
-        <div class="weui-cell__ft">
-          <img class="weui-vcode-img">
-        </div>
-      </div>
+      <ve-input-code v-model="code" placeholder='请输入验证码'></ve-input-code>
     </cell-box>
     <p class="page-action">
       <button class="ve-button ve-button-primary" @click="logon">登录</button>
-      <a href="" class="link">免费注册</a>
+      <router-link to="/register" class="link">免费注册</router-link>
     </p>
   </div>
 </template>
 <script>
 import { CellBox } from '../base/cell'
-import VeInput from '../base/input'
+import VeInput, { VeInputCode } from '../base/input'
 export default {
   name: 'login',
   data() {
@@ -43,7 +36,8 @@ export default {
   },
   components: {
     CellBox,
-    VeInput
+    VeInput,
+    VeInputCode
   },
   computed: {
     errors() {

@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <transition name="ve-pop-in">
+      <router-view class="router-view"></router-view>
+    </transition>
   </div>
 </template>
 
@@ -9,3 +11,4 @@ export default {
   name: 'app'
 }
 </script>
+
